@@ -1,3 +1,6 @@
+The above code gives an overview on lane detection and object detection using opencv and tensorflow.
+
+
 link to tensorflow model:
 https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1
 
