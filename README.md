@@ -1,25 +1,76 @@
-hello there, this code is about lane detection, object detection by a dash cam. we get the footage from the car dashcam and analize the scene detect the lane ahead and the curvatur of the lane and also detect the cars nearby and how far are they, we cant detect any kind of object not only cars. 
+# Car Automation System
 
-  This is the basic implementation of self driving vehcile, we use OpencCV for image processing, tensorflow prebuild model for object detection, the lane detection part is drawn from another auther.
+An advanced driver assistance system that uses computer vision and machine learning to detect lanes, analyze road curvature, and identify nearby objects from dashcam footage.
 
+![Demo Screenshot](https://github.com/tanish0000/car-Automation/assets/121498791/38c904a3-0090-4382-a1e9-6da8d56c48e3)
 
-the following picture shows the sample output for the code above: 
+## Overview
 
+This project implements core technologies used in autonomous driving systems:
 
+1. **Lane Detection & Analysis**: Identifies lane markings and calculates the road curvature ahead
+2. **Object Detection**: Recognizes and classifies objects in the driving environment
+3. **Distance Estimation**: Approximates the distance to detected objects
 
-![Screenshot 2023-06-24 at 5 01 38 PM](https://github.com/tanish0000/car-Automation/assets/121498791/38c904a3-0090-4382-a1e9-6da8d56c48e3)
+The system processes real-time dashcam footage to provide these insights, creating a foundation for more advanced autonomous driving capabilities.
 
+## Features
 
+- **Advanced Lane Detection**:
+  - Robust lane identification even in varying lighting conditions
+  - Curvature calculation to anticipate turns
+  - Lane departure warning indication
 
+- **Multi-Class Object Detection**:
+  - Identifies vehicles (cars, trucks, buses, motorcycles)
+  - Detects pedestrians, cyclists, and other road users
+  - Recognizes traffic signs and signals
 
- 
+- **Environment Analysis**:
+  - Distance estimation to other road users
+  - Visual highlighting of detected objects
+  - Real-time processing of dashcam video feed
 
+## Tech Stack
 
-link to tensorflow model:
-https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1
+- **Python**: Core programming language
+- **OpenCV**: Image processing and computer vision operations
+- **TensorFlow**: Machine learning model for object detection
+- **EfficientDet-Lite2**: Pre-trained object detection model
+- **NumPy**: Numerical computing for data manipulation
 
-if you wanna further learn openCV head to: 
-https://docs.opencv.org/4.x/dc/d4d/tutorial_py_table_of_contents_gui.html
+## Implementation Details
 
-link:
-https://github.com/Dt-Pham/Advanced-Lane-Lines.git
+### Lane Detection Pipeline
+
+The lane detection system follows these steps:
+1. Camera calibration to correct for lens distortion
+2. Color and gradient thresholding to isolate lane markings
+3. Perspective transformation for bird's-eye view analysis
+4. Lane line identification with sliding window approach
+5. Curvature calculation and vehicle position estimation
+6. Visual overlay of detection results on original image
+
+### Object Detection System
+
+For object recognition, the system:
+1. Processes each video frame through the TensorFlow EfficientDet model
+2. Identifies objects with confidence scores above threshold
+3. Calculates approximate distance based on object size and position
+4. Annotates the original frame with bounding boxes and information
+
+## Getting Started
+
+### Prerequisites
+- Python 3.7+
+- OpenCV
+- TensorFlow 2.x
+- NumPy
+- Matplotlib (for visualization)
+
+### Installation
+
+1. Clone this repository:
+```bash
+git clone https://github.com/yourusername/car-Automation.git
+cd car-Automation
